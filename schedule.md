@@ -64,7 +64,7 @@
 ---
 # **Squad Demos**
 ## **Thursday (01/18)**
-From 2:00pm-5:00pm
+From 4:00pm-5:00pm
 
 ---
 
