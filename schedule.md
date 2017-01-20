@@ -69,28 +69,51 @@ From 4:00pm-5:00pm
 ---
 
 # **Presentations**
-## **Friday (01/19)**
+## **Friday (01/20)**
+
 | Student                   | Time |  
-|:-------------:            | :-------------: | 
-| [Kora][kora-repo]         | 2:00pm -2:05pm |   
-| [Barrett][barrett-repo]   | 2:10pm -2:15pm |
-| [Andrew][andrew-repo]     | 2:20pm -2:25pm |
-| [An][an-repo]             | 2:30pm -2:35pm |
-| [Michelle][michelle-repo] | 2:40pm-2:45pm  |
-| [Jake][jake-repo]         | 2:50pm-2:55pm  |   
-| [Rony][rony-repo]         | 3:00pm-3:05pm  |
-| [Lacey][lacey-repo]       | 3:10pm -3:15pm |
-| [Abi][abi-repo]           | 3:20pm -3:25pm |
-| [Brad][brad-repo]         | 3:30pm -3:35pm |
-| [Tim][tim-repo]           | 3:40pm -3:45pm |
-| [Qian][qian-repo]         | 3:50pm-3:55pm  |
-| [Ritwick][ritwick-repo]   | 4:00pm-4:05pm  |    
-| [Bao][bao-repo]           | 4:10pm -4:15pm |
-| [Justin][justin-repo]     | 4:20pm -4:25pm |
-| [Dakotah][dakotah-repo]   | 4:30pm -4:35pm |
-| [Kris][kris-repo]         | 4:40pm -4:45pm |
-| [Mimi][mimi-repo]         | 4:50pm -4:55pm |
-| [Margie][margie-repo]     | 4:55pm -5:00pm |
+|:-------------:            | :-------------:  
+| [Kora][kora-repo]         | 2:10pm - 2:15pm  
+| [Barrett][barrett-repo]   | 2:17pm - 2:22pm 
+| [Andrew][andrew-repo]     | 2:24pm - 2:29pm 
+| [An][an-repo]             | 2:31pm - 2:36pm  
+
+7 minute break
+
+| Student                   | Time |  
+|:-------------:            | :-------------:  
+| [Michelle][michelle-repo] | 2:43pm - 2:47pm     
+| [Jake][jake-repo]         | 2:49pm - 2:54pm  
+| [Rony][rony-repo]         | 2:56pm - 3:01pm 
+| [Lacey][lacey-repo]       | 3:03pm - 3:08pm 
+
+7 minute break
+
+| Student                   | Time |  
+|:-------------:            | :-------------:  
+| [Abi][abi-repo]           | 3:15pm - 3:20pm 
+| [Brad][brad-repo]         | 3:22pm - 3:27pm 
+| [Tim][tim-repo]           | 3:29pm - 3:34pm  
+| [Qian][qian-repo]         | 3:36pm - 3:41pm      
+
+7 minute break
+
+| Student                   | Time |  
+|:-------------:            | :-------------:  
+| [Ritwick][ritwick-repo]   | 3:48pm - 3:53pm 
+| [Bao][bao-repo]           | 3:55pm - 4:00pm 
+| [Justin][justin-repo]     | 4:02pm - 4:07pm 
+| [Dakotah][dakotah-repo]   | 4:09pm - 4:14pm 
+
+7 minute break
+
+| Student                   | Time |  
+|:-------------:            | :-------------:  
+| [Kris][kris-repo]         | 4:21pm - 4:26pm 
+| [Mimi][mimi-repo]         | 4:28pm - 4:33pm 
+| [Margie][margie-repo]     | 4:35pm - 4:40pm
+
+[Self Assessment](https://docs.google.com/forms/d/e/1FAIpQLScDUv_YZP3lUC_YLoRnTglYE7rF1a_ytDamW0QR4bH8pps1dQ/viewform?c=0&w=1)
 
 [abi-repo]: http://github.com/abimunoz/project_02_crud_app
 [an-repo]: http://github.com/secretagentan/project_02_crud_app
