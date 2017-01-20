@@ -70,24 +70,44 @@ From 4:00pm-5:00pm
 
 # **Presentations**
 ## **Friday (01/19)**
-| Student | Time |  
-|:-------------:   | :-------------: | 
-| Kora | 2:00pm -2:05pm |   
-| Barrett | 2:10pm -2:15pm |
-| Andrew | 2:20pm -2:25pm |
-| An | 2:30pm -2:35pm |
-| Michelle | 2:40pm-2:45pm |
-| Jake | 2:50pm-2:55pm |   
-| Rony | 3:00pm-3:05pm |
-| Lacey | 3:10pm -3:15pm |
-| Abi | 3:20pm -3:25pm |
-| Brad | 3:30pm -3:35pm |
-| Tim | 3:40pm -3:45pm |
-| Qian | 3:50pm-3:55pm |
-| Ritwick | 4:00pm-4:05pm |   
-| Bao | 4:10pm -4:15pm |
-| Justin | 4:20pm -4:25pm |
-| Dakotah | 4:30pm -4:35pm |
-| Kris | 4:40pm -4:45pm |
-| Mimi | 4:50pm -4:55pm |
-| Margie | 4:55pm -5:00pm |
+| Student                   | Time |  
+|:-------------:            | :-------------: | 
+| [Kora][kora-repo]         | 2:00pm -2:05pm |   
+| [Barrett][barrett-repo]   | 2:10pm -2:15pm |
+| [Andrew][andrew-repo]     | 2:20pm -2:25pm |
+| [An][an-repo]             | 2:30pm -2:35pm |
+| [Michelle][michelle-repo] | 2:40pm-2:45pm  |
+| [Jake][jake-repo]         | 2:50pm-2:55pm  |   
+| [Rony][rony-repo]         | 3:00pm-3:05pm  |
+| [Lacey][lacey-repo]       | 3:10pm -3:15pm |
+| [Abi][abi-repo]           | 3:20pm -3:25pm |
+| [Brad][brad-repo]         | 3:30pm -3:35pm |
+| [Tim][tim-repo]           | 3:40pm -3:45pm |
+| [Qian][qian-repo]         | 3:50pm-3:55pm  |
+| [Ritwick][ritwick-repo]   | 4:00pm-4:05pm  |    
+| [Bao][bao-repo]           | 4:10pm -4:15pm |
+| [Justin][justin-repo]     | 4:20pm -4:25pm |
+| [Dakotah][dakotah-repo]   | 4:30pm -4:35pm |
+| [Kris][kris-repo]         | 4:40pm -4:45pm |
+| [Mimi][mimi-repo]         | 4:50pm -4:55pm |
+| [Margie][margie-repo]     | 4:55pm -5:00pm |
+
+[abi-repo]: http://github.com/abimunoz/project_02_crud_app
+[an-repo]: http://github.com/secretagentan/project_02_crud_app
+[andrew-repo]: http://github.com/amaidah/project_02_crud_app
+[bao-repo]: http://github.com/baokhoavu/project_02_crud_app
+[barrett-repo]: http://github.com/yeahbq/project_02_crud_app
+[brad-repo]: http://github.com/bkmorgan3/project_02_crud_app
+[dakotah-repo]: http://github.com/walkerdakotah/project_02_crud_app
+[jake-repo]: http://github.com/jmiller-io/project_02_crud_app
+[justin-repo]: http://github.com/blizm87/project_02_crud_app
+[kora-repo]: http://github.com/trashdaemon/project_02_crud_app
+[kris-repo]: http://github.com/Krystneto/project_02_crud_app
+[lacey-repo]: http://github.com/lacerbeams/project_02_crud_app
+[margie-repo]: http://github.com/margier/project_02_crud_app
+[michelle-repo]: http://github.com/miblee/project_02_crud_app
+[mimi-repo]: http://github.com/mimischirm/project_02_crud_app
+[qian-repo]: http://github.com/Hesai69/project_02_crud_app
+[ritwick-repo]: http://github.com/ritz1337/project_02_crud_app
+[rony-repo]: http://github.com/ronyarmas/project_02_crud_app
+[tim-repo]: http://github.com/crimclark/project_02_crud_app
