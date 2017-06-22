@@ -1,0 +1,144 @@
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+main {
+  flex: 1 0 auto;
+}
+
+.nav-buttons-right {
+  margin-right: 40px;
+}
+
+.form-wrap {
+  margin: 0 auto;
+  margin-top: 40px;
+}
+
+.form-wrap1 {
+  margin: 0 auto;
+  margin-top: 40px;
+}
+
+.button-wrap {
+  text-align: center;
+}
+
+.brand-logo {
+  margin-left: 50px;
+}
+
+@media only screen and (max-width: 992px) {
+  nav .brand-logo {
+    margin-left: 0;
+  }
+  .form-wrap1 {
+    width: 90%;
+  }
+}
+
+@media only screen and (min-width: 601px) {
+  .form-wrap1 {
+    width: 85%;
+  }
+/*  .houses {
+    width: 85%;
+  }*/
+}
+
+@media only screen and (min-width: 993px) {
+  .form-wrap {
+    width: 60%;
+  }
+  .form-wrap1 {
+    width: 70%;
+  }
+  .houses  {
+    /*width: 70%;*/
+  }
+
+}
+
+.form-wrap1 {
+  max-width: 1280px;
+}
+
+.houses {
+  width: 85%;
+  max-width: 1162px;
+  margin-top: 40px;
+}
+
+.house-wrap {
+  text-align: center;
+  margin: 0 auto;
+}
+
+.form-button-inline {
+  display: inline;
+}
+
+.link-button-trick {
+  background: none;
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 1em;
+  color: #ffab40;
+  margin-right: 20px;
+  transition: color .3s ease;
+  text-transform: uppercase;
+}
+.link-button-trick:focus {
+  outline: none;
+  background-color: #546e7a;
+}
+.link-button-trick:active {
+  color: #ffab40;
+  background-color: #546e7a;
+}
+
+.link-button-trick:hover {
+  color: #ffd8a6;
+}
+
+#sidenav-overlay {
+/*  left: 300px;
+  transition: .5s;*/
+  z-index: 996;
+}
+
+.zillow-front {
+  /*float: right;*/
+  display: inline-block;
+  margin: 30px 0 15px;
+}
+
+input[type=text]:focus:not([readonly]) + label {
+  color: #455a64;
+}
+
+input[type=text]:focus:not([readonly]) {
+  border-bottom: 1px solid #455a64;
+  box-shadow: 0 1px 0 0 #455a64;
+}
+
+input[type=text] {
+  color: #263238;
+}
+
+input[type=number]:focus:not([readonly]) + label {
+  color: #263238;
+}
+
+input[type=number]:focus:not([readonly]) {
+  border-bottom: 1px solid #263238;
+  box-shadow: 0 1px 0 0 #263238;
+}
+
+input[type=number] {
+  color: #263238;
+}
