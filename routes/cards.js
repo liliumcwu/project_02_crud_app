@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
   })
 })
 
-router.post('/delete', (req, res) => {
+router.post('/delete/:deleteID', (req, res) => {
   var id = req.body.value;
   dbHelp.remove(id, (err, del) => {
     handle.delHandle(err, del, res);

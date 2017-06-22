@@ -1,5 +1,5 @@
 var mongo = require('mongodb').MongoClient;
-var objectId = require('mongodb').Objec
+var objectId = require('mongodb').ObjectId;
 var url = process.env.MONGODB_URI || 'mongodb://localhost:27017/cardProject';
 var collection = 'cards';
 
@@ -15,19 +15,6 @@ function find(id, callback) {
         db.close();
         callback(err, results);
     })
-  })
-}
-
-function update(id, newRent, callback) {
-  mongo.connect(url, (err, db) => {
-    db.collection(collection).update(
-      {_id: objectId(id)},
-      {$set: {rent: newRent}},
-      (err, upd) => {
-        db.close();
-        callback(err, upd);
-      }
-    )
   })
 }
 
@@ -67,7 +54,6 @@ function add(newQ, newA, callback) {
 
 module.exports = {
   find,
-  update,
   remove,
   add
 }

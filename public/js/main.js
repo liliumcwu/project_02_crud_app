@@ -15,10 +15,9 @@ $(document).ready(function(){
 var $question = $('#card-question'),
     $answer = $('#card-ans'),
     $submitButton = $('#submit-button'),
-    $deleteButton = $('#delete-button');
+    $deleteButton = $('.delete-button');
 
 function deleteCard(evt) {
-  console.log('wazzup');
   var event = $(evt.target);
   var id = event.val();
   var remId = '#' + id
@@ -31,20 +30,10 @@ function deleteCard(evt) {
 }
 
 function addCard(evt) {
-  // var data ={};
-  // data.newRent = $('#update-rent').val();
-  // data.houseId = window.location.pathname.substring(8);
-
-  // var classSelect = '.' + data.houseId
   console.log('in main.js addCard function');
   var data = {};
   data.question = $question.val();
   data.answer = $answer.val();
-
-  // $.post('/update-rent', { value:  data}, (res) => {
-  //   console.log(res)
-  //   $(classSelect).load(location.href + " " + classSelect + ">*","");
-  // })
 
   $.post('/cards', { value: data});
 
