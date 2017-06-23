@@ -7,6 +7,7 @@ const express = require('express'),
 
 var index = require('./routes/index');
 var cards = require('./routes/cards');
+// var update = require('./routes/update-card');
 
 var app = express();
 
@@ -25,6 +26,7 @@ app.use(express.static(__dirname + '/public'));
 
 app.use('/', index);
 app.use('/cards', cards);
+// app.use('/card', update);
 
 //listen for port
 var port = process.env.PORT || 3000;

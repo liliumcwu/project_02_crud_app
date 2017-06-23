@@ -11,6 +11,22 @@ router.get('/', (req, res) => {
   })
 })
 
+router.get('/:uniqueID', (req, res) => {
+  var id = req.params.uniqueID;
+  dbHelp.find(id, (err, results) => {
+    res.render('card', {newObj: results});
+  })
+})
+
+router.post('/:uniqueID', (req, res) => {
+  var newAns = req.body.value.newAns,
+  id = req.body.value.cardId;
+  console.log('newAns in cards.js is ' + req.body.value.newAns);
+  dbHelp.update(id, newAns, (err, upd) => {
+    handle.errHandle(err, upd, res);
+  })
+})
+
 router.post('/delete/:deleteID', (req, res) => {
   var id = req.body.value;
   dbHelp.remove(id, (err, del) => {

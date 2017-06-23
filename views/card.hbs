@@ -1,0 +1,28 @@
+<main>
+<div class="house-wrap">
+  {{#each newObj}}
+    <h3>{{address.street}}</h3>
+    <h5>{{address.city}}, {{address.state}}</h5>
+  {{/each}}
+</div>
+  {{#each newObj}}
+  <div class="form-wrap1">
+    <div class={{_id}}>
+      <div>Question: <span>{{question}}</span></div>
+      <div>Answer: <span>{{answer}}</span></div>
+    </div>
+    <div>
+      <p>Want to edit the answer?</p>
+      <form>
+        <div class="row">
+          <div class="input-field">
+            <input id="new-answer" value="{{answer}}" type="text"></input>
+            <label for="new-answer">New Answer</label>
+          </div>
+        </div>
+      </form>
+      <button class="waves-effect blue-grey darken-2 waves-light btn" id="new-answer-button">Update Answer</button>
+    </div>
+  </div>
+    {{/each}}
+</main>

@@ -31,6 +31,20 @@ function remove(id, callback) {
   })
 }
 
+function update(id, newAns, callback) {
+  mongo.connect(url, (err, db) => {
+    console.log('in mongo-util, newAns is ' + newAns);
+    db.collection(collection).update(
+      {_id: objectId(id)},
+      {$set: {answer: newAns}},
+      (err, upd) => {
+        db.close();
+        callback(err, upd);
+      }
+    )
+  })
+}
+
 function add(newQ, newA, callback) {
   //   mongo.connect(url, (err, db) => {
   //   db.collection(collection).update(
@@ -55,5 +69,6 @@ function add(newQ, newA, callback) {
 module.exports = {
   find,
   remove,
+  update,
   add
 }

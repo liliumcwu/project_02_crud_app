@@ -16,18 +16,8 @@ var $question = $('#card-question'),
     $answer = $('#card-ans'),
     $submitButton = $('#submit-button'),
     $deleteButton = $('.delete-button');
-
-function deleteCard(evt) {
-  var event = $(evt.target);
-  var id = event.val();
-  var remId = '#' + id
-
-  $.post('/cards/delete/' + id, {value: id}, (res) => {
-    if (res.status === 200) {
-      $(remId).remove();
-    }
-  })
-}
+    $newAnswer = $('#new-answer'),
+    $updateAnsButton = $('#new-answer-button');
 
 function addCard(evt) {
   console.log('in main.js addCard function');
@@ -43,17 +33,40 @@ function addCard(evt) {
   $answer.blur();
 }
 
+function deleteCard(evt) {
+  var event = $(evt.target);
+  var id = event.val();
+  var remId = '#' + id
 
-// function seeCards(evt) {
-//   $.get("test.php", function( data ) {
-//     $( "body" )
-//       .append( "Question: " + data.question )
-//       .append( "Answer: " + data.answer );
-//   }, "json" );
-// }
+  $.post('/cards/delete/' + id, {value: id}, (res) => {
+    if (res.status === 200) {
+      $(remId).remove();
+    }
+  })
+}
+
+function updateCard(evt) {
+  console.log('in main.js updateCard function');
+  var data = {};
+  data.newAns = $newAnswer.val();
+  data.cardId = window.location.pathname.substring(7);
+  console.log('cardId is ' + data.cardId);
+  var classSelect = '.' + data.cardId;
+
+  $.post('/cards/' + data.cardId, { value: data}, (res) => {
+    console.log(res);
+    $(classSelect).load(location.href + " " + classSelect + ">*","");
+  });
+  $question.val('');
+  $question.blur();
+  $answer.val('');
+  $answer.blur();
+}
+
 
 $submitButton.on('click', addCard);
 $deleteButton.on('click', deleteCard);
+$updateAnsButton.on('click', updateCard);
 
 
 
