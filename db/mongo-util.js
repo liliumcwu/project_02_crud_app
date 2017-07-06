@@ -19,7 +19,6 @@ function find(id, callback) {
 }
 
 function remove(id, callback) {
-  console.log('in mongo-util, remove function');
   mongo.connect(url, (err, db) => {
     db.collection(collection).remove(
       {_id: objectId(id)},
@@ -33,7 +32,6 @@ function remove(id, callback) {
 
 function update(id, newAns, callback) {
   mongo.connect(url, (err, db) => {
-    console.log('in mongo-util, newAns is ' + newAns);
     db.collection(collection).update(
       {_id: objectId(id)},
       {$set: {answer: newAns}},
@@ -47,7 +45,6 @@ function update(id, newAns, callback) {
 
 function add(newQ, newA, cardColor, callback) {
   mongo.connect(url, (err, db) => {
-    console.log('in mongo-util, cardColor is ' + cardColor);
     db.collection(collection).insert({question: newQ, answer: newA, cardColor: cardColor},
       (err, upd) => {
         db.close();

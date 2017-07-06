@@ -52,10 +52,6 @@ main {
   .form-wrap1 {
     width: 85%;
   }
-/*  .houses {
-    width: 85%;
-  }*/
-}
 
 @media only screen and (min-width: 993px) {
   .form-wrap {
