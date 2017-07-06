@@ -45,20 +45,10 @@ function update(id, newAns, callback) {
   })
 }
 
-function add(newQ, newA, callback) {
-  //   mongo.connect(url, (err, db) => {
-  //   db.collection(collection).update(
-  //     {_id: objectId(id)},
-  //     {$set: {rent: newRent}},
-  //     (err, upd) => {
-  //       db.close();
-  //       callback(err, upd);
-  //     }
-  //   )
-  // })
+function add(newQ, newA, cardColor, callback) {
   mongo.connect(url, (err, db) => {
-    console.log('in mongo-util, newQ is ' + newQ);
-    db.collection(collection).insert({question: newQ, answer: newA},
+    console.log('in mongo-util, cardColor is ' + cardColor);
+    db.collection(collection).insert({question: newQ, answer: newA, cardColor: cardColor},
       (err, upd) => {
         db.close();
         callback(err, upd);

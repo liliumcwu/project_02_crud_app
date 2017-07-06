@@ -37,7 +37,8 @@ router.post('/delete/:deleteID', (req, res) => {
 router.post('/', (req, res) => {
   var newQ = req.body.value.question;
   var newA = req.body.value.answer;
-  dbHelp.add(newQ, newA, (err, upd) => {
+  var cardC  = req.body.value.cardColor;
+  dbHelp.add(newQ, newA, cardC, (err, upd) => {
     handle.errHandle(err, upd, res);
   });
 })

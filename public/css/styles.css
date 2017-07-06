@@ -13,6 +13,10 @@ main {
   background-color: #4e2a84 !important;
 }
 
+.blue-grey {
+  background-color: #607d8b !important;
+}
+
 .nav-buttons-right {
   margin-right: 40px;
 }
@@ -113,12 +117,6 @@ main {
 /*  left: 300px;
   transition: .5s;*/
   z-index: 996;
-}
-
-.zillow-front {
-  /*float: right;*/
-  display: inline-block;
-  margin: 30px 0 15px;
 }
 
 input[type=text]:focus:not([readonly]) + label {

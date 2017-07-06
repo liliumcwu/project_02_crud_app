@@ -24,6 +24,7 @@ function addCard(evt) {
   var data = {};
   data.question = $question.val();
   data.answer = $answer.val();
+  data.cardColor = '#'+(0x1000000+(Math.random())*0xffffff).toString(16).substr(1,6);
 
   $.post('/cards', { value: data});
 
