@@ -1,15 +1,14 @@
 <main>
-<div class="house-wrap">
+<div class="question-wrap">
   {{#each newObj}}
-    <h3>{{address.street}}</h3>
-    <h5>{{address.city}}, {{address.state}}</h5>
+    <p style="font-style: italic;">Created: {{getTimeStamp _id}}</p>
   {{/each}}
 </div>
   {{#each newObj}}
   <div class="form-wrap1">
     <div class={{_id}}>
-      <div>Question: <span>{{question}}</span></div>
-      <div>Answer: <span>{{answer}}</span></div>
+      <h5>Question: <span>{{question}}</span></h5>
+      <h5>Answer: <span>{{answer}}</span></h5>
     </div>
     <div>
       <p>Want to edit the answer?</p>

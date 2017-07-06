@@ -11,7 +11,16 @@ var cards = require('./routes/cards');
 
 var app = express();
 
-app.engine('hbs', hbs({extname: 'hbs', defaultLayout: 'main', layoutsDir: __dirname + '/views/layouts/'}));
+app.engine('hbs', hbs({extname: 'hbs',
+  defaultLayout: 'main',
+  layoutsDir: __dirname + '/views/layouts/',
+  helpers: {
+    getTimeStamp: function (_id) {
+      var timestamp = _id.toString().substring(0,8);
+      return new Date( parseInt( timestamp, 16 ) * 1000 );
+    }
+  }
+}));
 // server .hbs templates from views with res.render
 app.set('views', path.join(__dirname, 'views'));
 // Use Handlebars syntax {{ }}

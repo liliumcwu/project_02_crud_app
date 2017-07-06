@@ -9,6 +9,10 @@ main {
   flex: 1 0 auto;
 }
 
+.purply {
+  background-color: #4e2a84 !important;
+}
+
 .nav-buttons-right {
   margin-right: 40px;
 }
@@ -72,7 +76,7 @@ main {
   margin-top: 40px;
 }
 
-.house-wrap {
+.question-wrap {
   text-align: center;
   margin: 0 auto;
 }

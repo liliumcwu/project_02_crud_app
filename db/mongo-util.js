@@ -8,7 +8,7 @@ function find(id, callback) {
   mongo.connect(url, (err, db) => {
     var objId = {}
     if (id) {
-      objId = {_id: objectId(id)}
+      objId = {_id: objectId(id)};
     }
     db.collection(collection).find(objId).toArray(
       (err, results) => {
