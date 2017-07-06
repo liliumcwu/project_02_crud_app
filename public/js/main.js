@@ -24,7 +24,29 @@ function addCard(evt) {
   var data = {};
   data.question = $question.val();
   data.answer = $answer.val();
-  data.cardColor = '#'+(0x1000000+(Math.random())*0xffffff).toString(16).substr(1,6);
+  var color = '#'+(0x1000000+(Math.random())*0xffffff).toString(16).substr(1,6);
+
+  /* from user Alnitak at question
+    https://stackoverflow.com/questions/12043187/how-to-check-if-hex-color-is-too-black */
+  var c = color.substring(1);      // strip #
+  var rgb = parseInt(c, 16);   // convert rrggbb to decimal
+  var r = (rgb >> 16) & 0xff;  // extract red
+  var g = (rgb >>  8) & 0xff;  // extract green
+  var b = (rgb >>  0) & 0xff;  // extract blue
+  var luma = 0.2126 * r + 0.7152 * g + 0.0722 * b; // per ITU-R BT.709
+
+  while (luma > 128) {
+    console.log('color ' + color + ' was too bright. Trying another color.');
+    color = '#'+(0x1000000+(Math.random())*0xffffff).toString(16).substr(1,6);
+    c = color.substring(1);      // strip #
+    rgb = parseInt(c, 16);   // convert rrggbb to decimal
+    r = (rgb >> 16) & 0xff;  // extract red
+    g = (rgb >>  8) & 0xff;  // extract green
+    b = (rgb >>  0) & 0xff;  // extract blue
+    luma = 0.2126 * r + 0.7152 * g + 0.0722 * b; // per ITU-R BT.709
+  }
+
+  data.cardColor = color;
 
   $.post('/cards', { value: data});
 
@@ -35,17 +57,17 @@ function addCard(evt) {
 }
 
 function deleteCard(evt) {
-  var event = $(evt.target);
-  var id = event.val();
-  var remId = '#' + id
-
-  $.post('/cards/delete/' + id, {value: id}, (res) => {
-    if (res.status === 200) {
-      $(remId).remove();
-    }
-  })
+  if (window.confirm("Do you really want to delete this card?")) {
+    var event = $(evt.target);
+    var id = event.val();
+    var remId = '#' + id;
+    $.post('/cards/delete/' + id, {value: id}, (res) => {
+      if (res.status === 200) $(remId).remove();
+    });
+  }
 }
 
+/* Need to add user credentials */
 function updateCard(evt) {
   console.log('in main.js updateCard function');
   var data = {};
