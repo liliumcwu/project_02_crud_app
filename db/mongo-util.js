@@ -43,9 +43,9 @@ function update(id, newAns, callback) {
   })
 }
 
-function add(newQ, newA, cardColor, callback) {
+function add(newQ, newA, wrongAnswers, cardColor, callback) {
   mongo.connect(url, (err, db) => {
-    db.collection(collection).insert({question: newQ, answer: newA, cardColor: cardColor},
+    db.collection(collection).insert({question: newQ, answer: newA, wrongAnswers: wrongAnswers, cardColor: cardColor},
       (err, upd) => {
         db.close();
         callback(err, upd);

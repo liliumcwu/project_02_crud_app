@@ -14,6 +14,9 @@ $(document).ready(function(){
 
 var $question = $('#card-question'),
     $answer = $('#card-ans'),
+    $wrongA = $('#wrong-a'),
+    $wrongB = $('#wrong-b'),
+    $wrongC= $('#wrong-c'),
     $submitButton = $('#submit-button'),
     $deleteButton = $('.delete-button');
     $newAnswer = $('#new-answer'),
@@ -21,9 +24,18 @@ var $question = $('#card-question'),
 
 function addCard(evt) {
   console.log('in main.js addCard function');
+  // error checking for just whitespace
+  if (!(/\S/.test($question.val()) && /\S/.test($answer.val())
+      && /\S/.test($wrongA.val()) && /\S/.test($wrongB.val())
+      && /\S/.test($wrongC.val()))) {
+    // string is just whitespace
+    window.alert("Please fill in all the fields.")
+    return;
+  }
   var data = {};
   data.question = $question.val();
   data.answer = $answer.val();
+  data.wrongAnswers = [$wrongA.val(), $wrongB.val(), $wrongC.val()];
   var color = '#'+(0x1000000+(Math.random())*0xffffff).toString(16).substr(1,6);
 
   /* from user Alnitak at question
