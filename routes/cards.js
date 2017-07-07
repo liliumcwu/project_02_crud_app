@@ -37,9 +37,11 @@ router.post('/delete/:deleteID', (req, res) => {
 router.post('/', (req, res) => {
   var newQ = req.body.value.question;
   var newA = req.body.value.answer;
-  var wrongAnswers = req.body.value.wrongAnswers;
+  var wrong1 = req.body.value.wrong1;
+  var wrong2 = req.body.value.wrong2;
+  var wrong3 = req.body.value.wrong3;
   var cardC  = req.body.value.cardColor;
-  dbHelp.add(newQ, newA, wrongAnswers, cardC, (err, upd) => {
+  dbHelp.add(newQ, newA, wrong1, wrong2, wrong3, cardC, (err, upd) => {
     handle.errHandle(err, upd, res);
   });
 })

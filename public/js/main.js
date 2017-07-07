@@ -9,14 +9,15 @@ $(document).ready(function(){
   $(".navbar-fixed nav div ul li").each(function(){
     if($(this).children().attr("href") == url)
       $(this).addClass("active");
-  })
+  });
+  $('#modal1').modal();
 })
 
 var $question = $('#card-question'),
     $answer = $('#card-ans'),
-    $wrongA = $('#wrong-a'),
-    $wrongB = $('#wrong-b'),
-    $wrongC= $('#wrong-c'),
+    $wrong1 = $('#wrong-1'),
+    $wrong2 = $('#wrong-2'),
+    $wrong3 = $('#wrong-3'),
     $submitButton = $('#submit-button'),
     $deleteButton = $('.delete-button');
     $newAnswer = $('#new-answer'),
@@ -26,16 +27,18 @@ function addCard(evt) {
   console.log('in main.js addCard function');
   // error checking for just whitespace
   if (!(/\S/.test($question.val()) && /\S/.test($answer.val())
-      && /\S/.test($wrongA.val()) && /\S/.test($wrongB.val())
-      && /\S/.test($wrongC.val()))) {
+      && /\S/.test($wrong1.val()) && /\S/.test($wrong2.val())
+      && /\S/.test($wrong3.val()))) {
     // string is just whitespace
-    window.alert("Please fill in all the fields.")
+    window.alert("Please fill in all the fields.");
     return;
   }
   var data = {};
   data.question = $question.val();
   data.answer = $answer.val();
-  data.wrongAnswers = [$wrongA.val(), $wrongB.val(), $wrongC.val()];
+  data.wrong1 = $wrong1.val();
+  data.wrong2 = $wrong2.val();
+  data.wrong3 = $wrong3.val();
   var color = '#'+(0x1000000+(Math.random())*0xffffff).toString(16).substr(1,6);
 
   /* from user Alnitak at question
@@ -66,6 +69,12 @@ function addCard(evt) {
   $question.blur();
   $answer.val('');
   $answer.blur();
+  $wrong1.val('');
+  $wrong1.blur();
+  $wrong2.val('');
+  $wrong2.blur();
+  $wrong3.val('');
+  $wrong3.blur();
 }
 
 function deleteCard(evt) {

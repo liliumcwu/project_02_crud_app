@@ -16,6 +16,41 @@
         </button>
       </div>
     </div>
+  {{!-- </div> --}}
+
+  {{!-- <div class="row section"> --}}
+    <div class="col s12 m3">
+      <!-- Modal Trigger -->
+      <a class="waves-effect waves-light btn modal-trigger" href="#modal1" style="background-color: {{cardColor}};">Question: {{question}}</a>
+    </div>
+  {{!-- </div> --}}
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>Question: {{question}}</h4>
+      <form action="#">
+        <p>
+          <input type="radio" name="{{_id}}_submission" id="test1"/>
+          <label for="test1">{{answer}}</label>
+        </p>
+        <p>
+          <input type="radio" name="{{_id}}_submission" id="test2"/>
+          <label for="test2">{{wrong1}}</label>
+        </p>
+        <p>
+          <input type="radio" name="{{_id}}_submission" id="test3"/>
+          <label for="test3">{{wrong2}}</label>
+        </p>
+        <p>
+          <input type="radio" name="{{_id}}_submission" id="test4"/>
+          <label for="test4">{{wrong3}}</label>
+        </p>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Submit</a>
+    </div>
+  </div>
   </div>
 {{/each}}
 </div>
