@@ -10,7 +10,9 @@ $(document).ready(function(){
     if($(this).children().attr("href") == url)
       $(this).addClass("active");
   });
-  $('#modal1').modal();
+  // $('#modal_595ff3513a43b0ed58d370ce').modal();
+  $('.modal').modal();
+
 })
 
 var $question = $('#card-question'),
@@ -18,10 +20,24 @@ var $question = $('#card-question'),
     $wrong1 = $('#wrong-1'),
     $wrong2 = $('#wrong-2'),
     $wrong3 = $('#wrong-3'),
-    $submitButton = $('#submit-button'),
+    $indexSubmitButton = $('#index-submit-button'),
     $deleteButton = $('.delete-button');
     $newAnswer = $('#new-answer'),
-    $updateAnsButton = $('#new-answer-button');
+    $updateAnsButton = $('#new-answer-button'),
+    $cardsSubmitButton = $('#cards-submit-button_595ff3513a43b0ed58d370ce'),
+    $cardsSubmitButton2 = $('#cards-submit-button_595ff4310b78e9edfd8d9d02'),
+    allCardsSubmitButtons = document.getElementsByClassName('buttonbears');
+
+
+  // $('.modal').modal({
+  //     dismissible: true, // Modal can be dismissed by clicking outside of the modal
+  //     ready: function(modal, trigger) { // Callback for Modal open. Modal and trigger parameters available.
+  //       alert("Ready");
+  //       console.log(modal, trigger);
+  //     },
+  //     complete: function() { alert('Closed'); } // Callback for Modal close
+  //   }
+  // );
 
 function addCard(evt) {
   console.log('in main.js addCard function');
@@ -107,11 +123,43 @@ function updateCard(evt) {
   $answer.blur();
 }
 
+// $('.cards-submit-buttons').click(function() {
+//     // here you could use "this" to get the DOM element that was clicked.
+//     console.log('hullo');
+// });
 
-$submitButton.on('click', addCard);
+function checkAns(evt) {
+  console.log('whatsup');
+  var id = this.parentNode.parentNode.id.slice(6);
+  console.log('iddddddd is ' + id);
+  var radios = document.getElementsByName(id);
+  console.log('radios is ' + radios);
+  console.log('radios[0] is ' + radios[0]);
+
+  for (var i = 0, length = radios.length; i < length; i++) {
+    if (radios[i].checked) {
+        // var radioId = '#test' + i;
+        // console.log('radioId is ' + radioId);
+        console.log('radio ' + i + '\'s value is ' + radios[i].value);
+        console.log('radios[i].parentNode.parentNode.parentNode.id is ' + radios[i].parentNode.parentNode.parentNode.id);
+        break; // since only one will be checked
+    }
+  }
+}
+
+$indexSubmitButton.on('click', addCard);
+$("#wrong-3").keyup(function(event){
+    if(event.keyCode == 13) $("#index-submit-button").click();
+});
+
 $deleteButton.on('click', deleteCard);
 $updateAnsButton.on('click', updateCard);
-
+// $cardsSubmitButton.on('click', checkAns);
+// $cardsSubmitButton2.on('click', checkAns);
+// $('.cards-submit-buttons').on('click', checkAns);
+[].forEach.call(allCardsSubmitButtons, function(element) {
+  element.addEventListener('click', checkAns);
+});
 
 
 

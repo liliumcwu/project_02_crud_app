@@ -7,50 +7,50 @@
       <div class="card-content white-text">
         <p class="card-title">Question: {{question}}</>
         <p>Answer: {{answer}}</p>
-
       </div>
       <div class="card-action">
         <a href="/cards/{{_id}}">Edit Details</a>
         <button type="submit" name="submit_param" value={{_id}} class="link-button-trick delete-button">
             Delete
         </button>
+
+        <!-- Modal Structure -->
+    <div id="modal_{{_id}}" class="modal">
+      <div class="modal-content">
+        <h4>Question: {{question}}</h4>
+        {{!-- <form action="#"> --}}
+          <p>
+            <input type="radio" name="{{_id}}" id="test1_{{_id}}" value="{{answer}}"/>
+            <label for="test1_{{_id}}">{{answer}}</label>
+          </p>
+          <p>
+            <input type="radio" name="{{_id}}" id="test2_{{_id}}" value="{{wrong1}}"/>
+            <label for="test2_{{_id}}">{{wrong1}}</label>
+          </p>
+          <p>
+            <input type="radio" name="{{_id}}" id="test3_{{_id}}" value="{{wrong2}}"/>
+            <label for="test3_{{_id}}">{{wrong2}}</label>
+          </p>
+          <p>
+            <input type="radio" name="{{_id}}" id="test4_{{_id}}" value="{{wrong3}}"/>
+            <label for="test4_{{_id}}">{{wrong3}}</label>
+          </p>
+          {{!-- <button class = "modal-action waves-effect waves-green btn-flat" id="cards-submit-button">Submit</button> --}}
+        {{!-- </form> --}}
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class= "modal-action modal-close waves-effect waves-green btn-flat buttonbears" id="cards-submit-button_{{_id}}">Submit</a>
+      </div>
+    </div>
       </div>
     </div>
   {{!-- </div> --}}
 
-  {{!-- <div class="row section"> --}}
     <div class="col s12 m3">
       <!-- Modal Trigger -->
-      <a class="waves-effect waves-light btn modal-trigger" href="#modal1" style="background-color: {{cardColor}};">Question: {{question}}</a>
+      <a class="waves-effect waves-light btn modal-trigger" href="#modal_{{_id}}" style="background-color: {{cardColor}};">Question: {{question}}</a>
     </div>
-  {{!-- </div> --}}
-  <!-- Modal Structure -->
-  <div id="modal1" class="modal">
-    <div class="modal-content">
-      <h4>Question: {{question}}</h4>
-      <form action="#">
-        <p>
-          <input type="radio" name="{{_id}}_submission" id="test1"/>
-          <label for="test1">{{answer}}</label>
-        </p>
-        <p>
-          <input type="radio" name="{{_id}}_submission" id="test2"/>
-          <label for="test2">{{wrong1}}</label>
-        </p>
-        <p>
-          <input type="radio" name="{{_id}}_submission" id="test3"/>
-          <label for="test3">{{wrong2}}</label>
-        </p>
-        <p>
-          <input type="radio" name="{{_id}}_submission" id="test4"/>
-          <label for="test4">{{wrong3}}</label>
-        </p>
-      </form>
-    </div>
-    <div class="modal-footer">
-      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Submit</a>
-    </div>
-  </div>
+
   </div>
 {{/each}}
 </div>
