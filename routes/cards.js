@@ -14,11 +14,29 @@ router.get('/', (req, res) => {
 router.get('/:uniqueID', (req, res) => {
   var id = req.params.uniqueID;
   dbHelp.find(id, (err, results) => {
+    res.send(results[0]); // the results array only has one element
+    // because id is always unique
+  })
+});
+
+router.get('/:uniqueID/edit', (req, res) => {
+  var id = req.params.uniqueID;
+  dbHelp.find(id, (err, results) => {
     res.render('card', {newObj: results});
   })
-})
+});
 
-router.post('/:uniqueID', (req, res) => {
+// router.post('/:uniqueID', (req, res) => {
+//   var newAns = req.body.value.newAns,
+//   id = req.body.value.cardId;
+//   console.log('newAns in cards.js is ' + req.body.value.newAns);
+//   dbHelp.update(id, newAns, (err, upd) => {
+//     handle.errHandle(err, upd, res);
+//   })
+// })
+
+
+router.put('/:uniqueID', (req, res) => {
   var newAns = req.body.value.newAns,
   id = req.body.value.cardId;
   console.log('newAns in cards.js is ' + req.body.value.newAns);

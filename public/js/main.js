@@ -109,14 +109,25 @@ function updateCard(evt) {
   console.log('in main.js updateCard function');
   var data = {};
   data.newAns = $newAnswer.val();
-  data.cardId = window.location.pathname.substring(7);
+  data.cardId = window.location.pathname.substring(7, 31);
   console.log('cardId is ' + data.cardId);
   var classSelect = '.' + data.cardId;
 
-  $.post('/cards/' + data.cardId, { value: data}, (res) => {
-    console.log(res);
-    $(classSelect).load(location.href + " " + classSelect + ">*","");
+  $.ajax({
+     url: '/cards/' + data.cardId,
+     type: 'PUT',
+     dataType: 'json',
+     data: {value: data},
+     success: function(data, response) {
+      console.log('data is', data);
+       $(classSelect).load(location.href + " " + classSelect + ">*","");
+     }
   });
+
+  // $.post('/cards/' + data.cardId, { value: data}, (res) => {
+  //   console.log(res);
+  //   $(classSelect).load(location.href + " " + classSelect + ">*","");
+  // });
   $question.val('');
   $question.blur();
   $answer.val('');
@@ -133,15 +144,22 @@ function checkAns(evt) {
   var id = this.parentNode.parentNode.id.slice(6);
   console.log('iddddddd is ' + id);
   var radios = document.getElementsByName(id);
-  console.log('radios is ' + radios);
-  console.log('radios[0] is ' + radios[0]);
 
   for (var i = 0, length = radios.length; i < length; i++) {
     if (radios[i].checked) {
         // var radioId = '#test' + i;
         // console.log('radioId is ' + radioId);
         console.log('radio ' + i + '\'s value is ' + radios[i].value);
-        console.log('radios[i].parentNode.parentNode.parentNode.id is ' + radios[i].parentNode.parentNode.parentNode.id);
+        // console.log('radios[i].parentNode.parentNode.parentNode.id is ' + radios[i].parentNode.parentNode.parentNode.id);
+        $.get('/cards/' + id, {value: id}, (res) => {
+          console.log('res is ', res);
+          console.log('res.answer is', res.answer);
+          if (radios[i].value === res.answer) {
+            Materialize.toast('correct answer!');
+          }
+          else Materialize.toast('nahhhhhh');
+        });
+
         break; // since only one will be checked
     }
   }
@@ -149,17 +167,28 @@ function checkAns(evt) {
 
 $indexSubmitButton.on('click', addCard);
 $("#wrong-3").keyup(function(event){
-    if(event.keyCode == 13) $("#index-submit-button").click();
+    console.log('something happened');
+    if(event.keyCode == 13)
+      $("#index-submit-button").click();
+
 });
 
 $deleteButton.on('click', deleteCard);
 $updateAnsButton.on('click', updateCard);
+$("#new-answer").keyup(function(event) {
+  console.log('umm');
+  if (event.keyCode == 13) {
+    $("#new-answer-button").click();
+  }
+});
 // $cardsSubmitButton.on('click', checkAns);
 // $cardsSubmitButton2.on('click', checkAns);
 // $('.cards-submit-buttons').on('click', checkAns);
 [].forEach.call(allCardsSubmitButtons, function(element) {
   element.addEventListener('click', checkAns);
 });
+
+
 
 
 

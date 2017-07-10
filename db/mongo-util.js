@@ -9,6 +9,7 @@ function find(id, callback) {
     var objId = {}
     if (id) {
       objId = {_id: objectId(id)};
+      console.log('in mongo-util, objId is ' + objId);
     }
     db.collection(collection).find(objId).toArray(
       (err, results) => {
