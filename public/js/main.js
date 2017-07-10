@@ -98,9 +98,18 @@ function deleteCard(evt) {
     var event = $(evt.target);
     var id = event.val();
     var remId = '#' + id;
-    $.post('/cards/delete/' + id, {value: id}, (res) => {
-      if (res.status === 200) $(remId).remove();
-    });
+    $.ajax({
+     url: '/cards/delete/' + id,
+     type: 'delete',
+     dataType: 'json',
+     data: {value: id},
+     success: function(data, response) {
+      $(remId).remove();
+     }
+  });
+    // $.post('/cards/delete/' + id, {value: id}, (res) => {
+    //   if (res.status === 200) $(remId).remove();
+    // });
   }
 }
 
@@ -115,12 +124,12 @@ function updateCard(evt) {
 
   $.ajax({
      url: '/cards/' + data.cardId,
-     type: 'PUT',
+     type: 'put',
      dataType: 'json',
      data: {value: data},
      success: function(data, response) {
       console.log('data is', data);
-       $(classSelect).load(location.href + " " + classSelect + ">*","");
+      $(classSelect).load(location.href + " " + classSelect + ">*","");
      }
   });
 
