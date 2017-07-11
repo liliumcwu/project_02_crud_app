@@ -24,10 +24,10 @@ var $question = $('#card-question'),
     $deleteButton = $('.delete-button');
     $newAnswer = $('#new-answer'),
     $updateAnsButton = $('#new-answer-button'),
-    $cardsSubmitButton = $('#cards-submit-button_595ff3513a43b0ed58d370ce'),
-    $cardsSubmitButton2 = $('#cards-submit-button_595ff4310b78e9edfd8d9d02'),
+    // $cardsSubmitButton = $('#cards-submit-button_595ff3513a43b0ed58d370ce'),
+    // $cardsSubmitButton2 = $('#cards-submit-button_595ff4310b78e9edfd8d9d02'),
+    allDeleteButtons = document.getElementsByClassName('delete-buttons'),
     allCardsSubmitButtons = document.getElementsByClassName('buttonbears');
-
 
   // $('.modal').modal({
   //     dismissible: true, // Modal can be dismissed by clicking outside of the modal
@@ -94,23 +94,26 @@ function addCard(evt) {
 }
 
 function deleteCard(evt) {
-  if (window.confirm("Do you really want to delete this card?")) {
-    var event = $(evt.target);
-    var id = event.val();
+  console.log('whatsup');
+  var id = this.id.slice(22);
+  console.log('iddddddd is ' + id);
+  var yesId = 'yes_' + id;
+  console.log('yesId is', yesId);
+  var radio = document.getElementById(yesId);
+  if (radio.checked) {
+    console.log('yaaaas');
     var remId = '#' + id;
     $.ajax({
-     url: '/cards/delete/' + id,
-     type: 'delete',
-     dataType: 'json',
-     data: {value: id},
-     success: function(data, response) {
+      url: '/cards/delete/' + id,
+      type: 'delete',
+      dataType: 'json',
+      data: {value: id},
+      success: function(data, response) {
       $(remId).remove();
-     }
-  });
-    // $.post('/cards/delete/' + id, {value: id}, (res) => {
-    //   if (res.status === 200) $(remId).remove();
-    // });
+      }
+    });
   }
+  else console.log('noooo');
 }
 
 /* Need to add user credentials */
@@ -182,7 +185,7 @@ $("#wrong-3").keyup(function(event){
 
 });
 
-$deleteButton.on('click', deleteCard);
+// $deleteButton.on('click', deleteCard);
 $updateAnsButton.on('click', updateCard);
 $("#new-answer").keyup(function(event) {
   console.log('umm');
@@ -193,11 +196,14 @@ $("#new-answer").keyup(function(event) {
 // $cardsSubmitButton.on('click', checkAns);
 // $cardsSubmitButton2.on('click', checkAns);
 // $('.cards-submit-buttons').on('click', checkAns);
+
 [].forEach.call(allCardsSubmitButtons, function(element) {
   element.addEventListener('click', checkAns);
 });
 
-
+[].forEach.call(allDeleteButtons, function(element) {
+  element.addEventListener('click', deleteCard);
+});
 
 
 
