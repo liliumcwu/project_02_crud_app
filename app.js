@@ -2,15 +2,20 @@ const express = require('express'),
       logger = require('morgan'),
       favicon = require('serve-favicon'),
       hbs = require('express-handlebars'),
-      path = require('path');
-      bodyParser = require('body-parser');
+      path = require('path'),
+      bodyParser = require('body-parser'),
+      session = require('express-session'),
+      app = express();
 
+const CLIENT_ID = process.env.CLIENT_ID;
+const CLIENT_SECRET = process.env.CLIENT_SECRET;
+
+
+// routes
 var index = require('./routes/index');
 var cards = require('./routes/cards');
 // var update = require('./routes/update-card');
 var auth = require('./routes/auth');
-
-var app = express();
 
 app.engine('hbs', hbs({extname: 'hbs',
   defaultLayout: 'main',
@@ -22,10 +27,18 @@ app.engine('hbs', hbs({extname: 'hbs',
     }
   }
 }));
+
 // server .hbs templates from views with res.render
 app.set('views', path.join(__dirname, 'views'));
 // Use Handlebars syntax {{ }}
 app.set('view engine', 'hbs');
+
+// session
+app.use(session({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: true
+}));
 
 // middleware
 app.use(logger('dev'));
